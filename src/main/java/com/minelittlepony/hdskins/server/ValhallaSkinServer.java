@@ -87,8 +87,6 @@ public class ValhallaSkinServer implements SkinServer {
     }
 
     private void uploadPlayerSkin(SkinUpload upload) throws IOException, AuthenticationException {
-        authorize(upload.session());
-
         if (upload instanceof SkinUpload.Delete) {
             MoreHttpResponses.execute(HttpRequest.newBuilder(buildUserTextureUri(upload))
                             .DELETE()
